@@ -346,7 +346,7 @@ class ChatBot extends Component {
         }
       });
     }
-
+    console.log('got to this far down');
     const { cache, cacheName } = this.props;
     if (cache) {
       setTimeout(() => {
