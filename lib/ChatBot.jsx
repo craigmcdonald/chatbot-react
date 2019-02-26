@@ -225,7 +225,6 @@ class ChatBot extends Component {
   }
 
   triggerNextStep = (data) => {
-    console.log(data);
     const { enableMobileAutoFocus } = this.props;
     const {
       defaultUserSettings,
@@ -250,12 +249,8 @@ class ChatBot extends Component {
     if (isEnd) {
       this.handleEnd();
     } else if (currentStep.imageGroup && data ) {
-      console.log('now here');
-      console.log(currentStep.images);
       const image = currentStep.images.filter(o => o.value == data.value )[0];
-      console.log(image);
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
-      console.log(trigger);
       delete currentStep.images
 
       currentStep = Object.assign({}, currentStep, image, defaultUserSettings, {
@@ -263,21 +258,17 @@ class ChatBot extends Component {
         message: image.label,
         trigger,
       });
-      console.log(currentStep);
 
       renderedSteps.pop();
       previousSteps.pop();
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
-      console.log('at this point');
       this.setState({
         currentStep,
         renderedSteps,
         previousSteps,
       });
-      console.log('finished with else if');
     } else if (currentStep.options && data) {
-      console.log('better not be here');
       const option = currentStep.options.filter(o => o.value === data.value)[0];
       const trigger = this.getTriggeredStep(option.trigger, currentStep.value);
       delete currentStep.options;
@@ -300,15 +291,11 @@ class ChatBot extends Component {
         previousSteps,
       });
     } else if (currentStep.trigger) {
-      console.log('or not here');
       if (currentStep.replace) {
         renderedSteps.pop();
       }
-      console.log('more');
-      console.log(trigger);
       const trigger = this.getTriggeredStep(currentStep.trigger, currentStep.value);
       let nextStep = Object.assign({}, steps[trigger]);
-      console.log('hello');
       if (nextStep.message) {
         nextStep.message = this.getStepMessage(nextStep.message);
       } else if (nextStep.update) {
@@ -346,9 +333,7 @@ class ChatBot extends Component {
         }
       });
     }
-    console.log('got to this far down');
     const { cache, cacheName } = this.props;
-    console.log(this.props);
     if (cache) {
       setTimeout(() => {
         storage.setData(cacheName, {
@@ -359,6 +344,14 @@ class ChatBot extends Component {
         });
       }, 300);
     }
+    console.log('currentStep: ');
+    console.log(currentStep);
+    console.log('previousStep: ');
+    console.log(previousStep);
+    console.log('previousSteps: ');
+    console.log(previousSteps);
+    console.log('renderedSteps: ');
+    console.log(renderedSteps);
    console.log('end of triggerNextStep');
   }
 
