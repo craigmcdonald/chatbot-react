@@ -24,6 +24,7 @@ class ImageGroup extends Component {
     return (
       <Image
        className="n-img"
+       onClick={() => this.onImageClick({ value })}
       >
         <ImageElement
          className="n-image-el"
