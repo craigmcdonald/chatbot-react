@@ -18,7 +18,7 @@ class ImageGroup extends Component {
   renderImage = (image) => {
     const { step } = this.props;
     const { user } = step;
-    const { value, imgUrl } = image;
+    const { value, label, imgUrl } = image;
 
     return (
       <ImageElement
