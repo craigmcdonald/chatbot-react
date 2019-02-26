@@ -255,6 +255,7 @@ class ChatBot extends Component {
       const image = currentStep.images.filter(o => o.value == data.value )[0];
       console.log(image);
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
+      console.log(trigger);
       delete currentStep.images
 
       currentStep = Object.assign({}, currentStep, image, defaultUserSettings, {
@@ -262,6 +263,7 @@ class ChatBot extends Component {
         message: image.label,
         trigger,
       });
+      console.log(currentStep);
 
       renderedSteps.pop();
       previousSteps.pop();
