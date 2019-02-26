@@ -263,7 +263,7 @@ class ChatBot extends Component {
       previousSteps.pop();
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
-
+      console.log(currentStep);
       // this.setState({
       //   currentStep,
       //   renderedSteps,
