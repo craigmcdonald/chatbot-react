@@ -277,6 +277,7 @@ class ChatBot extends Component {
       });
       console.log('finished with else if');
     } else if (currentStep.options && data) {
+      console.log('better not be here');
       const option = currentStep.options.filter(o => o.value === data.value)[0];
       const trigger = this.getTriggeredStep(option.trigger, currentStep.value);
       delete currentStep.options;
