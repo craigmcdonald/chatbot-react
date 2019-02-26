@@ -253,6 +253,7 @@ class ChatBot extends Component {
       console.log('now here');
       console.log(currentStep.images);
       const image = currentStep.images.filter(o => o.value == data.value )[0];
+      console.log(image);
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
       delete currentStep.images
 
