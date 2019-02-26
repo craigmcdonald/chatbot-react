@@ -78,7 +78,7 @@ class ChatBot extends Component {
         settings = defaultBotSettings;
       } else if (step.component) {
         settings = defaultCustomSettings;
-      } elsif (step.imageGroup) {
+      } else if (step.imageGroup) {
         settings = defaultImageGroupSettings;
       }
 

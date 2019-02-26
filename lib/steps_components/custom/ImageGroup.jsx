@@ -62,7 +62,7 @@ class ImageGroup extends Component {
 
     return (
       <ImageGroupContainer className="n-img-group-container" style={style}>
-        {loading ? <Loading /> : {Object.values(images).map(this.renderImage)} }
+        { loading ? <Loading /> : Object.values(images).map(this.renderImage) }
       </ImageGroupContainer>
     );
   }

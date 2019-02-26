@@ -6,7 +6,7 @@ const ImageElement = styled.img`
 `;
 
 ImageElement.defaultProps = {
-  theme.defaultTheme,
+  theme: defaultTheme,
 };
 
 export default ImageElement;
