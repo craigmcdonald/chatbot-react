@@ -359,6 +359,7 @@ class ChatBot extends Component {
         });
       }, 300);
     }
+   console.log('end of triggerNextStep');
   }
 
   handleEnd = () => {
