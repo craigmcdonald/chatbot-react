@@ -255,7 +255,7 @@ class ChatBot extends Component {
 
       currentStep = Object.assign({}, currentStep, image, defaultUserSettings, {
         user: true,
-        message: image.imageUrl,
+        message: image.value,
         trigger,
       });
 
