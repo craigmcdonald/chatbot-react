@@ -300,6 +300,7 @@ class ChatBot extends Component {
         previousSteps,
       });
     } else if (currentStep.trigger) {
+      console.log('or not here');
       if (currentStep.replace) {
         renderedSteps.pop();
       }
