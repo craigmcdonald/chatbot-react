@@ -348,6 +348,7 @@ class ChatBot extends Component {
     }
     console.log('got to this far down');
     const { cache, cacheName } = this.props;
+    console.log(this.props);
     if (cache) {
       setTimeout(() => {
         storage.setData(cacheName, {
