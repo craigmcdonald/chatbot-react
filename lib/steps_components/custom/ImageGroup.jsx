@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
-import Image from './Image';
 import ImageElement from './ImageElement';
 import ImageGroupContainer from './ImageGroupContainer';
 
@@ -22,18 +21,12 @@ class ImageGroup extends Component {
     const { value, imgUrl } = image;
 
     return (
-      <Image
-       className="n-img"
+      <ImageElement
+       className="n-image-el"
        user={user}
+       src = {imgUrl}
        onClick={() => this.onImageClick({ value })}
-      >
-        <ImageElement
-         className="n-image-el"
-         user={user}
-         src = {imgUrl}
-         onClick={() => this.onImageClick({ value })}
-        />
-      </Image>
+      />
     );
   }
 
