@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Random from 'random-id';
-import { CustomStep, OptionsStep, TextStep } from './steps_components';
+import { CustomStep, OptionsStep, TextStep, ImageGroup } from './steps_components';
 import schema from './schemas/schema';
 import * as storage from './storage';
 import {
@@ -66,6 +66,7 @@ class ChatBot extends Component {
     const defaultBotSettings = { delay: botDelay, avatar: botAvatar };
     const defaultUserSettings = { delay: userDelay, avatar: userAvatar, hideInput: false };
     const defaultCustomSettings = { delay: customDelay };
+    const defaultImageGroupSettings = { delay: customDelay };
 
     for (let i = 0, len = steps.length; i < len; i += 1) {
       const step = steps[i];
@@ -77,6 +78,8 @@ class ChatBot extends Component {
         settings = defaultBotSettings;
       } else if (step.component) {
         settings = defaultCustomSettings;
+      } elsif (step.imageGroup) {
+        settings = defaultImageGroupSettings;
       }
 
       chatSteps[step.id] = Object.assign({}, settings, schema.parse(step));
@@ -533,9 +536,24 @@ class ChatBot extends Component {
       hideUserAvatar,
       speechSynthesis,
     } = this.props;
-    const { options, component, asMessage } = step;
+    const { options, component, asMessage, imageGroup } = step;
     const steps = this.generateRenderedStepsById();
     const previousStep = index > 0 ? renderedSteps[index - 1] : {};
+
+    if (imageGroup && !asMessage) {
+      return (
+        <ImageGroup
+          key={index}
+          speak={this.speak}
+          step={step}
+          steps={steps}
+          style={customStyle}
+          previousStep={previousStep}
+          previousValue={previousStep.value}
+          triggerNextStep={this.triggerNextStep}
+        />
+      );
+    }
 
     if (component && !asMessage) {
       return (
