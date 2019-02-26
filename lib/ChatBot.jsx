@@ -252,6 +252,7 @@ class ChatBot extends Component {
       const image = currentStep.images.filter(o => o.value == data.value )[0];
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
       delete currentStep.images;
+      delete currentStep.imageGroup;
 
       currentStep = Object.assign({}, currentStep, image, defaultUserSettings, {
         user: true,
@@ -264,11 +265,11 @@ class ChatBot extends Component {
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
       console.log(currentStep);
-      // this.setState({
-      //   currentStep,
-      //   renderedSteps,
-      //   previousSteps,
-      // });
+      this.setState({
+        currentStep,
+        renderedSteps,
+        previousSteps,
+      });
     } else if (currentStep.options && data) {
       const option = currentStep.options.filter(o => o.value === data.value)[0];
       const trigger = this.getTriggeredStep(option.trigger, currentStep.value);
