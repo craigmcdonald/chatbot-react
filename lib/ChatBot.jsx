@@ -251,18 +251,19 @@ class ChatBot extends Component {
     } else if (currentStep.imageGroup && data ) {
       const image = currentStep.images.filter(o => o.value == data.value )[0];
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
-      delete currentStep.images
+      delete currentStep.images;
 
       currentStep = Object.assign({}, currentStep, image, defaultUserSettings, {
         user: true,
         message: image.label,
         trigger,
       });
-
+      
       renderedSteps.pop();
       previousSteps.pop();
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
+
       this.setState({
         currentStep,
         renderedSteps,
@@ -344,15 +345,6 @@ class ChatBot extends Component {
         });
       }, 300);
     }
-    console.log('currentStep: ');
-    console.log(currentStep);
-    console.log('previousStep: ');
-    console.log(previousStep);
-    console.log('previousSteps: ');
-    console.log(previousSteps);
-    console.log('renderedSteps: ');
-    console.log(renderedSteps);
-   console.log('end of triggerNextStep');
   }
 
   handleEnd = () => {
