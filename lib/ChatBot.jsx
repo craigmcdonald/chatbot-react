@@ -302,10 +302,11 @@ class ChatBot extends Component {
       if (currentStep.replace) {
         renderedSteps.pop();
       }
-
+      console.log('more');
+      console.log(trigger);
       const trigger = this.getTriggeredStep(currentStep.trigger, currentStep.value);
       let nextStep = Object.assign({}, steps[trigger]);
-
+      console.log('hello');
       if (nextStep.message) {
         nextStep.message = this.getStepMessage(nextStep.message);
       } else if (nextStep.update) {
