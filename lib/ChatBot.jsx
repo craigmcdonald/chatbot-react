@@ -257,8 +257,8 @@ class ChatBot extends Component {
 
     if (isEnd) {
       this.handleEnd();
-    } else if (currentStep.imageGroup && data ) {
-      const image = currentStep.images.filter(o => o.value == data.value )[0];
+    } else if (currentStep.imageGroup && data) {
+      const image = currentStep.images.filter(o => o.value == data.value)[0];
       const trigger = this.getTriggeredStep(image.trigger, currentStep.value);
       delete currentStep.images;
       delete currentStep.imageGroup;

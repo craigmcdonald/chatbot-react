@@ -67,6 +67,7 @@ Survey.propTypes = {
   style: PropTypes.objectOf(PropTypes.any).isRequired,
   triggerNextStep: PropTypes.func.isRequired,
 };
+
 Survey.defaultProps = {
   previousValue: '',
   speak: () => {},
