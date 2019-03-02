@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import SurveyContainer from './SurveyContainer';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
