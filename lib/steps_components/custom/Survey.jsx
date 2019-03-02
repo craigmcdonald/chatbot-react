@@ -15,7 +15,7 @@ class Survey extends Component {
     const { step } = this.props;
     const { survey } = step;
     const { surveyUrl } = survey;
-    
+
     triggerNextStep({ surveyUrl });
   }
 
@@ -28,7 +28,7 @@ class Survey extends Component {
     return (
       <SurveyViewer>
         <ReactTypeformEmbed
-          url={surveyUrl+'?'+'nUuid='+nUuid}
+          url={surveyUrl+'?'+'nuuid='+nUuid}
           hideHeaders={true}
           hideFooters={true}
           opacity={0}
