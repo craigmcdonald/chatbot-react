@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import SurveyContainer from './SurveyContainer';
+import SurveyViewer from './SurveyViewer';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 
 class Survey extends Component {
@@ -16,12 +17,14 @@ class Survey extends Component {
     console.log(step);
     console.log(surveyUrl);
     return (
-      <ReactTypeformEmbed
-        url={surveyUrl}
-        hideHeaders={true}
-        hideFooters={true}
-        opacity={0}
-      />
+      <SurveyViewer>
+        <ReactTypeformEmbed
+          url={surveyUrl}
+          hideHeaders={true}
+          hideFooters={true}
+          opacity={0}
+        />
+      </SurveyViewer>
     )
   }
 
