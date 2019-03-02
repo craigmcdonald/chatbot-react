@@ -10,18 +10,29 @@ class Survey extends Component {
     loading: true,
   };
 
-  renderSurvey = () => {
+  onSurveyCallback = () => {
+    const { triggerNextStep } = this.props;
     const { step } = this.props;
     const { survey } = step;
     const { surveyUrl } = survey;
     
+    triggerNextStep({ surveyUrl });
+  }
+
+  renderSurvey = () => {
+    const { step } = this.props;
+    const { nUuid } = this.props;
+    const { survey } = step;
+    const { surveyUrl } = survey;
+
     return (
       <SurveyViewer>
         <ReactTypeformEmbed
-          url={surveyUrl}
+          url={surveyUrl+'?'+'nUuid='+nUuid}
           hideHeaders={true}
           hideFooters={true}
           opacity={0}
+          onSubmit={() => this.onSurveyCallback()}
         />
       </SurveyViewer>
     )
@@ -72,6 +83,7 @@ Survey.propTypes = {
   steps: PropTypes.objectOf(PropTypes.any).isRequired,
   style: PropTypes.objectOf(PropTypes.any).isRequired,
   triggerNextStep: PropTypes.func.isRequired,
+  nUuid: PropTypes.string,
 };
 
 Survey.defaultProps = {

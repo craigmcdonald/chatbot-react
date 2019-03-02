@@ -11,7 +11,7 @@ class ImageGroup extends Component {
 
   onImageClick = ({ value }) => {
     const { triggerNextStep } = this.props;
-    triggerNextStep( { value });
+    triggerNextStep({ value });
   }
 
   renderImage = (image) => {
