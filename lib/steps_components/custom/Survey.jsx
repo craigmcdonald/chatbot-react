@@ -12,6 +12,7 @@ class Survey extends Component {
   renderSurvey = () => {
     const { step } = this.props;
     const { surveyUrl } = step;
+    console.log(step);
     console.log(surveyUrl);
     return (
       <ReactTypeformEmbed
