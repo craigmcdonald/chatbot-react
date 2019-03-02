@@ -32,6 +32,7 @@ class Survey extends Component {
           hideHeaders={true}
           hideFooters={true}
           opacity={0}
+          autoClose={2000}
           onSubmit={() => this.onSurveyCallback()}
         />
       </SurveyViewer>
