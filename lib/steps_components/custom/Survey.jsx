@@ -11,7 +11,8 @@ class Survey extends Component {
 
   renderSurvey = () => {
     const { step } = this.props;
-    const { surveyUrl } = step;
+    const { survey } = step;
+    const { surveyUrl } = survey;
     console.log(step);
     console.log(surveyUrl);
     return (
