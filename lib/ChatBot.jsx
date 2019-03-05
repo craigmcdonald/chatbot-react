@@ -172,6 +172,10 @@ class ChatBot extends Component {
     }
   }
 
+  updateApplicant = (step) => {
+    console.log(step);
+  }
+
   onNodeInserted = (event) => {
     event.currentTarget.scrollTop = event.currentTarget.scrollHeight;
   }
@@ -246,7 +250,10 @@ class ChatBot extends Component {
     const isEnd = currentStep.end;
 
     if (data && data.value) {
-      console.log(data.value);
+      this.updateApplicant(currentStep);
+    }
+
+    if (data && data.value) {
       currentStep.value = data.value;
     }
     if (data && data.hideInput) {
