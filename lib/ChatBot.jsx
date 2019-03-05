@@ -176,7 +176,7 @@ class ChatBot extends Component {
 
     if (handleUpdate) {
       const values = new Object();
-      previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
+      previousSteps.filter(step => step.value).map(step => { values[step.id] = step.value });
       console.log(values);
       handleUpdate({ values });
     }
