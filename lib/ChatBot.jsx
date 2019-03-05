@@ -172,8 +172,9 @@ class ChatBot extends Component {
     }
   }
 
-  updateApplicant = () => {
-    console.log(this.state);
+  updateApplicant = (previousSteps) => {
+    const values = previousSteps.filter(step => step.value).map(step => step.value);
+    console.log(values);
   }
 
   onNodeInserted = (event) => {
@@ -250,7 +251,7 @@ class ChatBot extends Component {
     const isEnd = currentStep.end;
 
     if (data && data.value) {
-      this.updateApplicant();
+      this.updateApplicant(previousSteps);
     }
 
     if (data && data.value) {
