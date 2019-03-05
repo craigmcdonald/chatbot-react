@@ -4,7 +4,9 @@ import defaultTheme from '../../theme';
 const ImageElement = styled.img`
   max-width: 100px;
   max-height: 120px;
-  margin: 0 4px 0 4px;
+  padding:10px;
+  background-color: #D3D3D3;
+  margin: 0 4px 4px 4px;
   display: inline-block;
   cursor: pointer;
 

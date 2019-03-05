@@ -32,7 +32,7 @@ class ImageGroup extends Component {
 
   renderImagePair = (images) => {
     return (
-      <ImagePairElement class="n_image_pair_element">
+      <ImagePairElement className="n_image_pair_element">
         { images.map(this.renderImage) }
       </ImagePairElement>
     )
