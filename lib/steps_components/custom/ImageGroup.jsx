@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import ImageElement from './ImageElement';
+import ImagePairElement from './ImagePairElement';
 import ImageGroupContainer from './ImageGroupContainer';
 
 class ImageGroup extends Component {
@@ -15,8 +16,6 @@ class ImageGroup extends Component {
   }
 
   renderImages = (images) => {
-    console.log("renderImages");
-    console.log(images);
     const chunked_array = this.chunk_array(images,2);
     return chunked_array.map(this.renderImagePair)
   }
@@ -28,14 +27,10 @@ class ImageGroup extends Component {
       chunked_arr.push(array.slice(index, size + index));
       index += size;
     }
-    console.log("chunk_array");
-    console.log(chunked_arr);
     return chunked_arr;
   }
 
   renderImagePair = (images) => {
-    console.log("renderImagePair");
-    console.log(images);
     return (
       <ImagePairElement class="n_image_pair_element">
         { images.map(this.renderImage) }
