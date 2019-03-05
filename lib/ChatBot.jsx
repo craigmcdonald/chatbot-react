@@ -161,6 +161,12 @@ class ChatBot extends Component {
   componentWillUpdate(nextProps, nextState) {
     const { opened } = nextProps;
 
+    console.log('nextProps');
+    console.log(nextProps);
+
+    console.log('nextState');
+    console.log(nextState);
+
     if (opened !== undefined && opened !== nextState.opened) {
       this.setState({ opened });
     }
@@ -345,7 +351,6 @@ class ChatBot extends Component {
       });
     }
     const { cache, cacheName } = this.props;
-    console.log(currentStep);
     if (cache) {
       setTimeout(() => {
         storage.setData(cacheName, {
