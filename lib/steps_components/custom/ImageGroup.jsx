@@ -14,6 +14,29 @@ class ImageGroup extends Component {
     triggerNextStep({ value });
   }
 
+  renderImages = (images) => {
+    const chunked_array = this.chunk_array(images,2);
+    chunked_array.map(this.renderImagePair)
+  }
+
+  chunk_array = (array, size) => {
+    const chunked_arr = [];
+    let index = 0;
+    while (index < array.length) {
+      chunked_arr.push(array.slice(index, size + index));
+      index += size;
+    }
+    chunked_arr;
+  }
+
+  renderImagePair = (images) => {
+    return (
+      <ImagePairElement class="n_image_pair_element">
+        { images.map(this.renderImage) }
+      </ImagePairElement>
+    )
+  }
+
   renderImage = (image) => {
     const { step } = this.props;
     const { user } = step;
@@ -56,7 +79,7 @@ class ImageGroup extends Component {
 
     return (
       <ImageGroupContainer className="n-img-group-container" style={style}>
-        { loading ? <Loading /> : Object.values(images).map(this.renderImage) }
+        { loading ? <Loading /> : this.renderImages(Object.values(images)) }
       </ImageGroupContainer>
     );
   }

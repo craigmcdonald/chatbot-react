@@ -23,7 +23,7 @@ class Survey extends Component {
     const { step } = this.props;
     const { nUuid } = this.props;
     const { survey } = step;
-    const { surveyUrl } = survey;
+    const { surveyUrl, autoClose } = survey;
 
     return (
       <SurveyViewer>
@@ -32,7 +32,7 @@ class Survey extends Component {
           hideHeaders={true}
           hideFooters={true}
           opacity={0}
-          autoClose={2000}
+          autoClose={autoClose ? autoClose : 2000 }
           onSubmit={() => this.onSurveyCallback()}
         />
       </SurveyViewer>

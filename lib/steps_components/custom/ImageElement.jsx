@@ -3,7 +3,7 @@ import defaultTheme from '../../theme';
 
 const ImageElement = styled.img`
   max-width: 100px;
-  max-height: 200px;
+  max-height: 120px;
   margin: 0 4px 0 4px;
   display: inline-block;
   cursor: pointer;
