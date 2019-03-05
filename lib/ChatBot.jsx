@@ -175,9 +175,10 @@ class ChatBot extends Component {
     const { handleUpdate } = this.props;
 
     if (handleUpdate) {
-      const obj = new Object();
+      const values = new Object();
       previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
-      handleUpdate(obj);
+      console.log(values);
+      handleUpdate({ values });
     }
   }
 
