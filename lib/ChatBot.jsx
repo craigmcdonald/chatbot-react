@@ -257,7 +257,6 @@ class ChatBot extends Component {
       currentStep.hideInput = data.hideInput;
     }
     if (data && data.trigger) {
-      this.updateApplicant(previousSteps);
       currentStep.trigger = this.getTriggeredStep(data.trigger, data.value);
     }
 
@@ -307,6 +306,8 @@ class ChatBot extends Component {
         previousSteps,
       });
     } else if (currentStep.trigger) {
+      this.updateApplicant(previousSteps);
+      
       if (currentStep.replace) {
         renderedSteps.pop();
       }
