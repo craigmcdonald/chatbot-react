@@ -160,13 +160,6 @@ class ChatBot extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     const { opened } = nextProps;
-
-    console.log('nextProps');
-    console.log(nextProps);
-
-    console.log('nextState');
-    console.log(nextState);
-
     if (opened !== undefined && opened !== nextState.opened) {
       this.setState({ opened });
     }
@@ -253,6 +246,7 @@ class ChatBot extends Component {
     const isEnd = currentStep.end;
 
     if (data && data.value) {
+      console.log(data.value);
       currentStep.value = data.value;
     }
     if (data && data.hideInput) {
