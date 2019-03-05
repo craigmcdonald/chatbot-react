@@ -15,8 +15,10 @@ class ImageGroup extends Component {
   }
 
   renderImages = (images) => {
+    console.log("renderImages");
+    console.log(images);
     const chunked_array = this.chunk_array(images,2);
-    chunked_array.map(this.renderImagePair)
+    return chunked_array.map(this.renderImagePair)
   }
 
   chunk_array = (array, size) => {
@@ -26,10 +28,14 @@ class ImageGroup extends Component {
       chunked_arr.push(array.slice(index, size + index));
       index += size;
     }
-    chunked_arr;
+    console.log("chunk_array");
+    console.log(chunked_arr);
+    return chunked_arr;
   }
 
   renderImagePair = (images) => {
+    console.log("renderImagePair");
+    console.log(images);
     return (
       <ImagePairElement class="n_image_pair_element">
         { images.map(this.renderImage) }
