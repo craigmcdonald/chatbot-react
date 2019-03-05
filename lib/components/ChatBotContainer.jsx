@@ -20,7 +20,8 @@ const ChatBotContainer = styled.div`
   transition: transform .3s ease;
 
   @media screen and (max-width: 568px) {
-    border-radius: ${({ floating }) => floating ? '0' : ''};
+    border-radius: 0;
+    box-shadow: 0;
     bottom: 0 !important;
     left: initial !important;
     height: 100%;
