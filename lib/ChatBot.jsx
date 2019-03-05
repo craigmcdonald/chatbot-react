@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Random from 'random-id';
-// import {Ajax} from 'react-superagent';
 import {
   CustomStep,
   OptionsStep,
@@ -173,9 +172,13 @@ class ChatBot extends Component {
   }
 
   updateApplicant = (previousSteps) => {
-    const obj = new Object();
-    previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
-    console.log(obj);
+    const { handleUpdate } = this.props;
+
+    if (handleUpdate) {
+      const obj = new Object();
+      previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
+      handleUpdate({obj});
+    }
   }
 
   onNodeInserted = (event) => {
@@ -801,6 +804,7 @@ ChatBot.propTypes = {
   floatingStyle: PropTypes.objectOf(PropTypes.any),
   footerStyle: PropTypes.objectOf(PropTypes.any),
   handleEnd: PropTypes.func,
+  handleUpdate: PropTypes.func,
   headerComponent: PropTypes.element,
   headerTitle: PropTypes.string,
   height: PropTypes.string,
@@ -847,6 +851,7 @@ ChatBot.defaultProps = {
   floatingStyle: {},
   footerStyle: {},
   handleEnd: undefined,
+  handleUpdate: undefined,
   headerComponent: undefined,
   headerTitle: 'Chat',
   height: '520px',
