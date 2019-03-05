@@ -173,7 +173,8 @@ class ChatBot extends Component {
   }
 
   updateApplicant = (previousSteps) => {
-    const values = previousSteps.filter(step => step.value).map(step => step.value);
+    const obj = new Object();
+    const values = previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
     console.log(values);
   }
 
@@ -252,6 +253,7 @@ class ChatBot extends Component {
 
     if (data && data.value) {
       currentStep.value = data.value;
+      this.updateApplicant(previousSteps);
     }
     if (data && data.hideInput) {
       currentStep.hideInput = data.hideInput;
@@ -306,8 +308,6 @@ class ChatBot extends Component {
         previousSteps,
       });
     } else if (currentStep.trigger) {
-      this.updateApplicant(previousSteps);
-      
       if (currentStep.replace) {
         renderedSteps.pop();
       }
