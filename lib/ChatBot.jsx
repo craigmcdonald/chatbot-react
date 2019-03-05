@@ -172,8 +172,8 @@ class ChatBot extends Component {
     }
   }
 
-  updateApplicant = (step) => {
-    console.log(step);
+  updateApplicant = () => {
+    console.log(state);
   }
 
   onNodeInserted = (event) => {
@@ -250,7 +250,7 @@ class ChatBot extends Component {
     const isEnd = currentStep.end;
 
     if (data && data.value) {
-      this.updateApplicant(currentStep);
+      this.updateApplicant();
     }
 
     if (data && data.value) {
