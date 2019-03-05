@@ -7,8 +7,8 @@ const ImagePairElement = styled.div`
   padding: 16px;
 `;
 
-ImageElement.defaultProps = {
+ImagePairElement.defaultProps = {
   theme: defaultTheme,
 };
 
-export default ImageElement;
+export default ImagePairElement;
