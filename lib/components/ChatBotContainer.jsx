@@ -20,14 +20,14 @@ const ChatBotContainer = styled.div`
   transition: transform .3s ease;
 
   @media screen and (max-width: 568px) {
-    border-radius: 0;
-    box-shadow: 0;
+    border-radius: 0 !important;
+    box-shadow: 0 !important!;
     bottom: 0 !important;
     left: initial !important;
-    height: 100%;
+    height: 100% !important;
     right: 0 !important;
     top: initial !important;
-    width: 100%;
+    width: 100% !important;
   }
 `;
 

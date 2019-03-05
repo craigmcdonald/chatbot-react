@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Random from 'random-id';
+// import {Ajax} from 'react-superagent';
 import {
   CustomStep,
   OptionsStep,
@@ -344,6 +345,7 @@ class ChatBot extends Component {
       });
     }
     const { cache, cacheName } = this.props;
+    console.log(currentStep);
     if (cache) {
       setTimeout(() => {
         storage.setData(cacheName, {
