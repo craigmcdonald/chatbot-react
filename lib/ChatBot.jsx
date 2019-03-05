@@ -251,16 +251,13 @@ class ChatBot extends Component {
     const isEnd = currentStep.end;
 
     if (data && data.value) {
-      this.updateApplicant(previousSteps);
-    }
-
-    if (data && data.value) {
       currentStep.value = data.value;
     }
     if (data && data.hideInput) {
       currentStep.hideInput = data.hideInput;
     }
     if (data && data.trigger) {
+      this.updateApplicant(previousSteps);
       currentStep.trigger = this.getTriggeredStep(data.trigger, data.value);
     }
 
