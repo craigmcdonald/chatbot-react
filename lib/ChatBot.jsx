@@ -173,7 +173,7 @@ class ChatBot extends Component {
   }
 
   updateApplicant = () => {
-    console.log(state);
+    console.log(this.state);
   }
 
   onNodeInserted = (event) => {
