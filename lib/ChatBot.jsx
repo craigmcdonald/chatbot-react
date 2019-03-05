@@ -174,8 +174,8 @@ class ChatBot extends Component {
 
   updateApplicant = (previousSteps) => {
     const obj = new Object();
-    const values = previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
-    console.log(values);
+    previousSteps.filter(step => step.value).map(step => { obj[step.id] = step.value });
+    console.log(obj);
   }
 
   onNodeInserted = (event) => {
