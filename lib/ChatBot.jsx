@@ -690,10 +690,10 @@ class ChatBot extends Component {
       submitButtonStyle,
       width,
       height,
+      headerLogo,
+      chatLogo,
     } = this.props;
 
-    const headerLogo = this.props.headerLogo;
-    const chatLogo = this.props.chatLogo;
     const header = headerComponent || (
       <Header className="rsc-header">
         <HeaderLogo
