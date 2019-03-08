@@ -21,6 +21,8 @@ import {
   Footer,
   Input,
   SubmitButton,
+  HeaderLogo,
+  ChatLogo,
 } from './components';
 import Recognition from './recognition';
 import {
@@ -690,14 +692,16 @@ class ChatBot extends Component {
       height,
     } = this.props;
 
+    const headerLogo = this.props.headerLogo;
+    const chatLogo = this.props.chatLogo;
     const header = headerComponent || (
       <Header className="rsc-header">
-        <HeaderTitle className="rsc-header-title">{headerTitle}</HeaderTitle>
-        {floating && (
-          <HeaderIcon className="rsc-header-close-button" onClick={() => this.toggleChatBot(false)}>
-            <CloseIcon />
-          </HeaderIcon>
-        )}
+        <HeaderLogo
+          src={headerLogo}
+        />
+        <ChatLogo
+          src={chatLogo}
+        />
       </Header>
     );
 
@@ -809,6 +813,8 @@ ChatBot.propTypes = {
   headerComponent: PropTypes.element,
   headerTitle: PropTypes.string,
   height: PropTypes.string,
+  headerLogo: PropTypes.string,
+  chatLogo: PropTypes.string,
   hideBotAvatar: PropTypes.bool,
   hideHeader: PropTypes.bool,
   hideSubmitButton: PropTypes.bool,
