@@ -280,7 +280,7 @@ class ChatBot extends Component {
 
     if (data && data.value) {
       currentStep.value = data.value;
-      this.updateVisitor({step: currentStep, prevStep: previousStep, data: data});
+      this.updateVisitor({step: currentStep, data: data});
     }
     if (data && data.hideInput) {
       currentStep.hideInput = data.hideInput;
@@ -517,7 +517,7 @@ class ChatBot extends Component {
       };
 
       currentStep = Object.assign({}, defaultUserSettings, currentStep, step);
-      this.updateVisitor({step: currentStep, prevStep: previousStep, data: step});
+      this.updateVisitor({step: currentStep, data: step});
 
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
