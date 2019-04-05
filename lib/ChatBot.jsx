@@ -177,11 +177,11 @@ class ChatBot extends Component {
 
   updateVisitor = () => {
     const { handleUpdate } = this.props;
-    const {steps, currentStep, sentStepId} = this.state;
+    const {steps, currentStep, sentStepId, inputValue} = this.state;
     const { id } = currentStep;
 
-    if (handleUpdate && (id != sentStepId)) {
-      handleUpdate({step: currentStep, steps: steps});
+    if (handleUpdate && (id != sentStepId) && !inputValue) {
+      handleUpdate({step: currentStep, inputValue: inputValue);
       this.setState({
         sentStepId: id
       })
