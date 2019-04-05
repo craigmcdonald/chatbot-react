@@ -165,7 +165,6 @@ class ChatBot extends Component {
     if (opened !== undefined && opened !== nextState.opened) {
       this.setState({ opened });
     }
-    this.updateVisitor();
   }
 
   componentWillUnmount() {
@@ -175,17 +174,23 @@ class ChatBot extends Component {
     }
   }
 
-  updateVisitor = () => {
-    const { handleUpdate } = this.props;
-    const {steps, currentStep, sentStepId, inputValue} = this.state;
-    const { id } = currentStep;
+  updateVisitor = (step) => {
 
-    if (handleUpdate && (id != sentStepId) && !inputValue) {
-      handleUpdate({step: currentStep, inputValue: inputValue});
-      this.setState({
-        sentStepId: id
-      })
+    const { handleUpdate } = this.props;
+
+    if (handleUpdate) {
+      handleUpdate({step: step})
     }
+    // const { handleUpdate } = this.props;
+    // const {steps, currentStep, sentStepId, inputValue} = this.state;
+    // const { id } = currentStep;
+    //
+    // if (handleUpdate && (id != sentStepId) && !!inputValue) {
+    //   handleUpdate({step: currentStep, inputValue: inputValue});
+    //   this.setState({
+    //     sentStepId: id
+    //   })
+    // }
   }
 
 
@@ -508,6 +513,8 @@ class ChatBot extends Component {
         message: inputValue,
         value: inputValue,
       };
+
+      this.updateVisitor(step);
 
       currentStep = Object.assign({}, defaultUserSettings, currentStep, step);
 
