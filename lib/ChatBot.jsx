@@ -174,12 +174,12 @@ class ChatBot extends Component {
     }
   }
 
-  updateVisitor = (step) => {
+  updateVisitor = (obj) => {
 
     const { handleUpdate } = this.props;
 
     if (handleUpdate) {
-      handleUpdate({step: step})
+      handleUpdate(obj);
     }
     // const { handleUpdate } = this.props;
     // const {steps, currentStep, sentStepId, inputValue} = this.state;
@@ -277,6 +277,8 @@ class ChatBot extends Component {
 
     let { currentStep, previousStep } = this.state;
     const isEnd = currentStep.end;
+
+    this.updateVisitor({step: currentStep, data: data});
 
     if (data && data.value) {
       currentStep.value = data.value;
@@ -513,8 +515,6 @@ class ChatBot extends Component {
         message: inputValue,
         value: inputValue,
       };
-
-      this.updateVisitor(step);
 
       currentStep = Object.assign({}, defaultUserSettings, currentStep, step);
 
