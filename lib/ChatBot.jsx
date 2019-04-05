@@ -181,7 +181,7 @@ class ChatBot extends Component {
     const { id } = currentStep;
 
     if (handleUpdate && (id != sentStepId) && !inputValue) {
-      handleUpdate({step: currentStep, inputValue: inputValue);
+      handleUpdate({step: currentStep, inputValue: inputValue});
       this.setState({
         sentStepId: id
       })
