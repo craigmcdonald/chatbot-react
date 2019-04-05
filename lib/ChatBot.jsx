@@ -52,6 +52,7 @@ class ChatBot extends Component {
       speaking: false,
       recognitionEnable: props.recognitionEnable && Recognition.isSupported(),
       defaultUserSettings: {},
+      sentStepId: '',
     };
 
     this.speak = speakFn(props.speechSynthesis);
@@ -164,6 +165,7 @@ class ChatBot extends Component {
     if (opened !== undefined && opened !== nextState.opened) {
       this.setState({ opened });
     }
+    this.updateVisitor();
   }
 
   componentWillUnmount() {
@@ -173,16 +175,30 @@ class ChatBot extends Component {
     }
   }
 
-  updateApplicant = (previousSteps) => {
-    const { handleUpdate } = this.props;
+  updateVisitor = () => {
+    const { handleUpdate } this.props;
+    const {steps, currentStep, sentStep} this.state;
+    const { id } = currentStep;
 
-    if (handleUpdate) {
-      const values = new Object();
-      previousSteps.filter(step => step.value).map(step => { values[step.id] = step.value });
-      console.log(values);
-      handleUpdate({ values });
+    if (handleUpdate && (id != sentStepId)) {
+      handleUpdate({step: currentStep, steps: steps});
+      this.setState({
+        sentStepId: id
+      })
     }
   }
+
+
+  // updateApplicant = (previousSteps) => {
+  //   const { handleUpdate } = this.props;
+  //
+  //   if (handleUpdate) {
+  //     const values = new Object();
+  //     previousSteps.filter(step => step.value).map(step => { values[step.id] = step.value });
+  //     console.log(values);
+  //     handleUpdate({ values });
+  //   }
+  // }
 
   onNodeInserted = (event) => {
     event.currentTarget.scrollTop = event.currentTarget.scrollHeight;
@@ -259,7 +275,6 @@ class ChatBot extends Component {
 
     if (data && data.value) {
       currentStep.value = data.value;
-      this.updateApplicant(previousSteps);
     }
     if (data && data.hideInput) {
       currentStep.hideInput = data.hideInput;
