@@ -517,6 +517,7 @@ class ChatBot extends Component {
       };
 
       currentStep = Object.assign({}, defaultUserSettings, currentStep, step);
+      this.updateVisitor({step: currentStep, prevStep: previousStep, data: step});
 
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
