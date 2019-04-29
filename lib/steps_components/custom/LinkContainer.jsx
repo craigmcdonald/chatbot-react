@@ -5,8 +5,8 @@ const LinkContainer = styled.div`
   border: 2px solid black;
   display: flex;
   justify-content: center;
-  margin: 0 6px 10px 6px;
-  padding: 16px;
+  margin: 0 26px 10px 26px;
+  padding: 10px;
   cursor: pointer;
 `;
 
