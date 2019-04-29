@@ -7,6 +7,7 @@ import {
   TextStep,
   ImageGroup,
   Survey,
+  LinkStep,
 } from './steps_components';
 import schema from './schemas/schema';
 import * as storage from './storage';
@@ -77,6 +78,7 @@ class ChatBot extends Component {
     const defaultCustomSettings = { delay: customDelay };
     const defaultImageGroupSettings = { delay: customDelay };
     const defaultSurveySettings = { delay: customDelay };
+    const defaultLinkStepSettings = { delay: customDelay };
 
     for (let i = 0, len = steps.length; i < len; i += 1) {
       const step = steps[i];
@@ -92,6 +94,8 @@ class ChatBot extends Component {
         settings = defaultImageGroupSettings;
       } else if (step.survey) {
         settings = defaultSurveySettings;
+      } else if (step.linkText) {
+        settings = defaultLinkStepSettings;
       }
 
       chatSteps[step.id] = Object.assign({}, settings, schema.parse(step));
@@ -600,7 +604,7 @@ class ChatBot extends Component {
       speechSynthesis,
       nUuid,
     } = this.props;
-    const { options, component, asMessage, imageGroup, survey } = step;
+    const { options, component, asMessage, imageGroup, survey, linkText } = step;
     const steps = this.generateRenderedStepsById();
     const previousStep = index > 0 ? renderedSteps[index - 1] : {};
 
@@ -614,6 +618,21 @@ class ChatBot extends Component {
           style={customStyle}
           previousStep={previousStep}
           previousValue={previousStep.value}
+          triggerNextStep={this.triggerNextStep}
+        />
+      );
+    }
+
+    if (linkText && !asMessage) {
+      return (
+        <LinkStep
+          key={index}
+          speak={this.speak}
+          step={step}
+          steps={steps}
+          style={customStyle}
+          previousStep={previousStep}
+          previousValue={previousValue}
           triggerNextStep={this.triggerNextStep}
         />
       );
