@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const LinkSpan = styled.span`
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight:bold;
 `;
 
