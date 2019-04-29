@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import LinkContainer from './LinkContainer';
+import LinkIcon from './LinkIcon';
+import LinkSpan from './LinkSpan';
 
 class LinkStep extends Component {
   constructor (props) {
