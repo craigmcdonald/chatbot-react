@@ -5,4 +5,4 @@ const LinkSpan = styled.span`
   text-decoration: underline;
 `;
 
-export default LinkSpan
+export default LinkSpan;

@@ -82,7 +82,7 @@ LinkStep.propTypes = {
   triggerNextStep: PropTypes.func.isRequired,
 };
 
-CustomStep.defaultProps = {
+LinkStep.defaultProps = {
   previousValue: '',
   speak: () => {},
 };
