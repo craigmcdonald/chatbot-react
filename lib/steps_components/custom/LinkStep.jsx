@@ -30,7 +30,7 @@ class LinkStep extends Component {
         if (!waitAction && !step.rendered) {
           triggerNextStep();
         }
-        speak(setp, previousValue);
+        speak(step, previousValue);
       });
     }, delay);
   }
