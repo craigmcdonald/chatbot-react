@@ -7,7 +7,7 @@ class LinkStep extends Component {
   constructor (props) {
     super(props)
 
-    state = {
+    this.state = {
       loading: true,
       step: this.props.step,
       style: this.props.style,
