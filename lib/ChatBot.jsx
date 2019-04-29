@@ -632,7 +632,7 @@ class ChatBot extends Component {
           steps={steps}
           style={customStyle}
           previousStep={previousStep}
-          previousValue={previousValue}
+          previousValue={previousStep.value}
           triggerNextStep={this.triggerNextStep}
         />
       );
