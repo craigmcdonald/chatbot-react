@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 const LinkContainer = styled.div`
   background: #fff;
-  border: 2px solid black;
+  width:50%
   display: flex;
-  justify-content: center;
-  margin: 0 26px 10px 26px;
+  justify-content: flex-end;
+  margin: 5px 0 10px 0;
+  margin-left: 46%;
   padding: 10px;
   cursor: pointer;
 `;
